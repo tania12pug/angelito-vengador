@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANGELITO VENGADOR.exe</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ==================== INTRO ==================== -->
+
+    <section id="intro" class="screen intro-screen">
+
+        <div class="scan-line"></div>
+
+        <div class="system-box">
+
+            <p class="system-text">MARVEL DATABASE</p>
+
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+
+            <p class="system-status">
+                SYSTEM ONLINE
+            </p>
+
+            <p class="classified">
+                ARCHIVO CLASIFICADO
+            </p>
+
+            <h1>ANGELITO<br>VENGADOR</h1>
+
+            <p class="subtitle">
+                AVENGER DATABASE // PERSONAL FILE
+            </p>
+
+            <button id="startButton" class="main-button">
+                INICIAR MISIÓN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== PERFIL ==================== -->
+
+    <section id="profile" class="screen hidden">
+
+        <div class="content">
+
+            <p class="section-code">
+                AVENGERS DATABASE // FILE 001
+            </p>
+
+            <h2>ARCHIVO DEL VENGADOR</h2>
+
+            <div class="profile-card">
+
+                <div class="profile-photo">
+
+                    <img src="fotos/perfil.jpg"
+                         alt="Angelito Vengador">
+
+                </div>
+
+                <div class="profile-info">
+
+                    <p><span>ALIAS:</span> ANGELITO VENGADOR</p>
+
+                    <p><span>NOMBRE:</span> ANGEL ROMERO</p>
+
+                    <p><span>ESTADO:</span> ACTIVO</p>
+
+                    <p><span>MISIÓN:</span> CUMPLEAÑOS</p>
+
+                    <p><span>NIVEL:</span> LEGENDARIO</p>
+
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    <strong>200%</strong>
+                    <span>HERMOSURA</span>
+                </div>
+
+                <div>
+                    <strong>999%</strong>
+                    <span>AMOR</span>
+                </div>
+
+                <div>
+                    <strong>110%</strong>
+                    <span>LOCURA</span>
+                </div>
+
+            </div>
+
+            <button class="main-button" data-next="gems">
+                CONTINUAR MISIÓN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== GEMAS ==================== -->
+
+    <section id="gems" class="screen hidden">
+
+        <div class="content">
+
+            <p class="section-code">
+                INFINITY DATABASE // SECURITY LEVEL 06
+            </p>
+
+            <h2>LAS SEIS GEMAS</h2>
+
+            <p class="instruction">
+                Recupera las seis gemas para desbloquear el archivo secreto.
+            </p>
+
+            <div class="gems-container">
+
+                <button class="gem red" data-gem="0">
+                    <span>●</span>
+                    <small>PODER</small>
+                </button>
+
+                <button class="gem blue" data-gem="1">
+                    <span>●</span>
+                    <small>CONFIANZA</small>
+                </button>
+
+                <button class="gem green" data-gem="2">
+                    <span>●</span>
+                    <small>TIEMPO</small>
+                </button>
+
+                <button class="gem yellow" data-gem="3">
+                    <span>●</span>
+                    <small>ALEGRÍA</small>
+                </button>
+
+                <button class="gem purple" data-gem="4">
+                    <span>●</span>
+                    <small>AMOR</small>
+                </button>
+
+                <button class="gem orange" data-gem="5">
+                    <span>●</span>
+                    <small>FUTURO</small>
+                </button>
+
+            </div>
+
+            <p id="gemCounter" class="counter">
+                GEMAS RECUPERADAS: 0 / 6
+            </p>
+
+            <button id="memoryButton"
+                    class="main-button hidden">
+                ABRIR ARCHIVO DE RECUERDOS
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== MODAL DE GEMA ==================== -->
+
+    <div id="gemModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close-button">
+                ×
+            </button>
+
+            <div id="modalGemIcon"
+                 class="gem-icon">
+                ●
+            </div>
+
+            <h2 id="modalTitle">
+                GEMA
+            </h2>
+
+            <p id="modalText">
+                Mensaje secreto.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== RECUERDOS ==================== -->
+
+    <section id="memories" class="screen hidden">
+
+        <div class="content">
+
+            <p class="section-code">
+                MEMORY DATABASE // PRIVATE FILE
+            </p>
+
+            <h2>ARCHIVO DE RECUERDOS</h2>
+
+            <p class="instruction">
+                Algunos de los momentos más importantes de nuestra historia.
+            </p>
+
+            <div class="memory-grid">
+
+
+                <!-- FOTO 1 -->
+
+                <div class="memory-card">
+
+                    <img src="fotos/personafav.jpg"
+                         alt="Nuestro recuerdo">
+
+                    <div class="memory-info">
+
+                        <span class="memory-number">
+                            MEMORY 001
+                        </span>
+
+                        <h3>Mi persona favorita</h3>
+
+                        <p>
+                            Porque entre todos los multiversos,
+                            este es uno de mis favoritos ya que te tengo a ti.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOTO 2 -->
+
+                <div class="memory-card">
+
+                    <img src="fotos/sixflags.jpg"
+                         alt="Six Flags">
+
+                    <div class="memory-info">
+
+                        <span class="memory-number">
+                            MEMORY 002
+                        </span>
+
+                        <h3>Una aventura más</h3>
+
+                        <p>
+                            Otro recuerdo que quiero guardar
+                            para siempre, los días que estuvimos en sixflags oaxtepec, nos divertimos mucho, gritamos, nadamos pero lo mejor fue vernos dos días seguidos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOTO 3 -->
+
+                <div class="memory-card">
+
+                    <img src="fotos/primeracita.jpg"
+                         alt="Nuestra primera cita">
+
+                    <div class="memory-info">
+
+                        <span class="memory-number">
+                            MEMORY 003
+                        </span>
+
+                        <h3>Nuestra primera cita</h3>
+
+                        <p>
+                            Uno de esos momentos que se quedan
+                            guardados en mi corazón, ese día estaba muy nerviosa pero me di cuenta que si valía la pena volver a abrir mi corazón a alguien que de verdad se esforzó por enamorarme, y ahora mira, tenemos una increible relación, festejando tus 18 añitos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOTO 4 -->
+
+                <div class="memory-card">
+
+                    <img src="fotos/primerfoto.jpg"
+                         alt="Nuestro primer recuerdo">
+
+                    <div class="memory-info">
+
+                        <span class="memory-number">
+                            MEMORY 004
+                        </span>
+
+                        <h3>Nuestra primer foto juntos</h3>
+
+                        <p>
+                            Que tiempos aquellos, donde todos sabían que yo te gustaba, menos yo jajaja, cuando tus amigos agradecían porque le diste a su abuelita un riñón, me gusto mucha esa etapa de enamoramiento (tu modo sepso), cuando de un día para otro nos convertimos en novios (aunque y ame habías robado un beso tramposillo).
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="main-button"
+                    data-next="letter">
+                CONTINUAR
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== CARTA ==================== -->
+
+    <section id="letter" class="screen hidden">
+
+        <div class="content letter-content">
+
+            <p class="section-code">
+                CLASSIFIED MESSAGE // ONLY FOR ANGELITO
+            </p>
+
+            <h2>MENSAJE CLASIFICADO</h2>
+
+            <div class="letter-box">
+
+                <p>
+                    Para mi Angelito Vengador:
+                </p>
+
+                <p>
+          Si estás leyendo esto significa que lograste completar todas las misiones, encontraste las seis gemas y llegaste hasta el archivo final.
+        </p>
+
+        <p>
+          Desde que llegaste a mi vida, muchos momentos simples se convirtieron en recuerdos que quiero guardar para siempre. Amo nuestras risas, nuestras conversaciones, nuestras tonterías y todas las aventuras que hemos vivido.
+Admiro tu forma de ser, tu manera de hacerme reír y esos pequeños detalles que te hacen ser tú. No necesito que seas un superhéroe perfecto, porque para mí eres especial simplemente por ser quien eres.
+        </p>
+
+        <p>
+          Gracias por estar conmigo, por escucharme, acompañarme y hacer tantos momentos especiales. Espero que este nuevo año de tu vida esté lleno de aventuras, sueños cumplidos y muchas razones para sonreír.
+Y cuando vuelvas a ver esta página, recuerda que cada sorpresita fue hecha pensando en ti, por cierto gracias pepo11 por ayudarme a programar jajaja
+        </p>
+
+        <p>
+          Esta misión termina aquí… pero nuestra historia apenas sigue escribiéndose. Feliz legalidad mi niñito hermoso.
+        </p>
+                <p class="signature">
+                    Con mucho amor,<br>
+                    tu compañera de vida y la mejor novia del mundo: Agente Tania12pugs❤️
+                </p>
+
+            </div>
+
+            <button class="main-button"
+                    data-next="final">
+                DESBLOQUEAR ÚLTIMO ARCHIVO
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== FINAL ==================== -->
+
+    <section id="final" class="screen hidden">
+
+        <div class="final-content">
+
+            <p class="final-code">
+                FINAL DATABASE UNLOCKED
+            </p>
+
+            <div class="avengers-symbol">
+                A
+            </div>
+
+            <h1>
+                FELIZ<br>
+                CUMPLEAÑOS
+            </h1>
+
+            <h2>
+                ANGELITO VENGADOR
+            </h2>
+
+            <p class="final-message">
+                MISIÓN COMPLETADA
+            </p>
+
+            <p class="final-small">
+                Espero que te haya gustado tu sorpresita estilo Avengers, es para revivir a ese niño tan fanático, podras tener 18 pero para mi seguirás siendo mi tierno angelito vengador.
+P.D. ¿Qué se siente andar con una menor de edad jajajaja? 
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<audio id="backgroundMusic" src="sonidos/ambiente.mp3" loop></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>

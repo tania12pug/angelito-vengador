@@ -1,0 +1,945 @@
+/* =====================================================
+   ANGELITO VENGADOR.exe
+   STARK / AVENGERS DATABASE
+   ===================================================== */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #05070b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ==================== GENERAL ==================== */
+
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.screen.hidden {
+    display: none !important;
+}
+
+
+.screen:not(.hidden) {
+    display: flex;
+}
+
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+
+.section-code {
+    color: #ff3344;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+h2 {
+    font-size: clamp(30px, 6vw, 55px);
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+
+/* ==================== INTRO ==================== */
+
+
+.intro-screen {
+    background:
+        radial-gradient(circle at center, #172033 0%, #07090e 45%, #020306 100%);
+}
+
+
+.intro-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 30, 50, .7);
+    box-shadow: 0 0 20px #ff2038;
+    top: 0;
+    animation: scan 4s linear infinite;
+}
+
+
+@keyframes scan {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+
+.system-box {
+    width: min(700px, 100%);
+    text-align: center;
+}
+
+
+.system-text {
+    color: #ff263d;
+    letter-spacing: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.system-status {
+    color: #35ff89;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-top: 12px;
+}
+
+
+.classified {
+    margin-top: 60px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+
+.intro-screen h1 {
+    margin-top: 12px;
+    font-size: clamp(50px, 12vw, 110px);
+    line-height: .85;
+    letter-spacing: -4px;
+    color: white;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.4),
+        0 0 35px rgba(255,0,30,.3);
+}
+
+
+.subtitle {
+    margin-top: 25px;
+    color: #777;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+
+.loading-bar {
+    width: 100%;
+    max-width: 500px;
+    height: 4px;
+    background: #222;
+    margin: auto;
+}
+
+
+.loading-progress {
+    height: 100%;
+    width: 75%;
+    background: #ff2038;
+    box-shadow: 0 0 15px #ff2038;
+}
+
+
+/* ==================== BUTTON ==================== */
+
+
+.main-button {
+    margin-top: 40px;
+    padding: 16px 30px;
+    border: 1px solid #ff263d;
+    background: rgba(255, 20, 40, .08);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: .25s;
+}
+
+
+.main-button:hover {
+    background: #ff263d;
+    box-shadow: 0 0 25px rgba(255, 30, 50, .5);
+    transform: translateY(-2px);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==================== PROFILE ==================== */
+
+
+#profile {
+    background:
+        radial-gradient(circle at center, #111827, #030407 70%);
+}
+
+
+.profile-card {
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+    border: 1px solid #303846;
+    background: rgba(255,255,255,.025);
+
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    text-align: left;
+}
+
+
+.profile-photo {
+    width: 200px;
+    height: 240px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #ff263d;
+    box-shadow: 0 0 25px rgba(255,0,30,.2);
+}
+
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.profile-info p {
+    margin: 18px 0;
+    color: #bbb;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+.profile-info span {
+    color: #ff3344;
+    font-weight: bold;
+}
+
+
+.stats {
+    max-width: 700px;
+    margin: 30px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+
+.stats div {
+    border: 1px solid #29303b;
+    padding: 20px;
+    background: rgba(255,255,255,.02);
+}
+
+
+.stats strong {
+    display: block;
+    font-size: 28px;
+    color: #ff3344;
+}
+
+
+.stats span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+
+/* ==================== GEMAS ==================== */
+
+
+#gems {
+    background:
+        radial-gradient(circle at center, #151922, #020305 75%);
+}
+
+
+.instruction {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+
+
+.gems-container {
+    max-width: 700px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.gem {
+    border: 1px solid #333;
+    background: rgba(255,255,255,.025);
+    padding: 25px 10px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+.gem span {
+    display: block;
+    font-size: 65px;
+    line-height: 1;
+}
+
+
+.gem small {
+    display: block;
+    margin-top: 15px;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+.gem:hover {
+    transform: scale(1.05);
+}
+
+
+.gem.unlocked {
+    border-color: white;
+    box-shadow: 0 0 25px rgba(255,255,255,.25);
+}
+
+
+.gem.red span {
+    color: #ff263d;
+    text-shadow: 0 0 20px #ff263d;
+}
+
+
+.gem.blue span {
+    color: #277cff;
+    text-shadow: 0 0 20px #277cff;
+}
+
+
+.gem.green span {
+    color: #35e875;
+    text-shadow: 0 0 20px #35e875;
+}
+
+
+.gem.yellow span {
+    color: #ffd83d;
+    text-shadow: 0 0 20px #ffd83d;
+}
+
+
+.gem.purple span {
+    color: #b45cff;
+    text-shadow: 0 0 20px #b45cff;
+}
+
+
+.gem.orange span {
+    color: #ff7a22;
+    text-shadow: 0 0 20px #ff7a22;
+}
+
+
+.counter {
+    margin-top: 30px;
+    color: #777;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+
+/* ==================== MODAL ==================== */
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,.8);
+
+    z-index: 100;
+    padding: 20px;
+}
+
+
+.modal-content {
+    width: min(500px, 100%);
+    background: #0b0e14;
+    border: 1px solid #ff263d;
+    padding: 50px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255,0,30,.2);
+}
+
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.gem-icon {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+
+.gem-icon.red {
+    color: #ff263d;
+    text-shadow: 0 0 30px #ff263d;
+}
+
+
+.gem-icon.blue {
+    color: #277cff;
+    text-shadow: 0 0 30px #277cff;
+}
+
+
+.gem-icon.green {
+    color: #35e875;
+    text-shadow: 0 0 30px #35e875;
+}
+
+
+.gem-icon.yellow {
+    color: #ffd83d;
+    text-shadow: 0 0 30px #ffd83d;
+}
+
+
+.gem-icon.purple {
+    color: #b45cff;
+    text-shadow: 0 0 30px #b45cff;
+}
+
+
+.gem-icon.orange {
+    color: #ff7a22;
+    text-shadow: 0 0 30px #ff7a22;
+}
+
+
+#modalText {
+    color: #bbb;
+    line-height: 1.7;
+}
+
+
+/* ==================== RECUERDOS ==================== */
+
+
+#memories {
+    background:
+        radial-gradient(circle at center, #121721, #030406 75%);
+}
+
+
+.memory-grid {
+    max-width: 950px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+.memory-card {
+    background: rgba(255,255,255,.025);
+    border: 1px solid #2d3440;
+    text-align: left;
+    overflow: hidden;
+    transition: .3s;
+}
+
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff263d;
+    box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+
+
+.memory-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.memory-info {
+    padding: 20px;
+}
+
+
+.memory-number {
+    color: #ff3344;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+
+.memory-info h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+
+.memory-info p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+
+/* ==================== CARTA ==================== */
+
+
+#letter {
+    background:
+        radial-gradient(circle at center, #171b24, #020304 80%);
+}
+
+
+.letter-content {
+    max-width: 750px;
+}
+
+
+.letter-box {
+    border: 1px solid #343b48;
+    background: rgba(255,255,255,.025);
+
+    padding: 45px;
+
+    text-align: left;
+
+    line-height: 1.9;
+    color: #ccc;
+}
+
+
+.letter-box p {
+    margin-bottom: 20px;
+}
+
+
+.signature {
+    color: white;
+    text-align: right;
+}
+
+
+/* ==================== FINAL ==================== */
+
+
+#final {
+    background:
+        radial-gradient(circle at center, #25060b, #040506 70%);
+}
+
+
+.final-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+
+.final-code {
+    color: #ff263d;
+    letter-spacing: 5px;
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+
+
+.avengers-symbol {
+    width: 110px;
+    height: 110px;
+
+    margin: auto auto 35px;
+
+    border: 4px solid white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+    font-weight: bold;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.4),
+        inset 0 0 20px rgba(255,255,255,.2);
+}
+
+
+.final-content h1 {
+    font-size: clamp(45px, 10vw, 100px);
+    line-height: .85;
+    letter-spacing: -3px;
+}
+
+
+.final-content h2 {
+    margin-top: 25px;
+    color: #ff3344;
+    font-size: clamp(25px, 5vw, 50px);
+}
+
+
+.final-message {
+    margin-top: 40px;
+    color: #35ff89;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+
+.final-small {
+    margin-top: 20px;
+    color: #777;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+
+@media (max-width: 700px) {
+
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .profile-photo {
+        width: 180px;
+        height: 220px;
+    }
+
+
+    .gems-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .letter-box {
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .screen {
+        padding: 30px 15px;
+    }
+
+
+    .gems-container {
+        gap: 10px;
+    }
+
+
+    .gem {
+        padding: 18px 5px;
+    }
+
+
+    .gem span {
+        font-size: 50px;
+    }
+
+
+    .memory-card img {
+        height: 230px;
+    }
+
+}
+/* ================================
+   EFECTOS ESPECIALES - AVENGERS
+================================ */
+
+/* Fondo tecnológico */
+body {
+    overflow-x: hidden;
+}
+
+/* Partículas */
+.particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: #00eaff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* Línea de escaneo */
+.screen::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00eaff,
+        transparent
+    );
+    opacity: 0.25;
+    pointer-events: none;
+    animation: scanLine 5s linear infinite;
+}
+
+@keyframes scanLine {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+/* Brillo de las gemas */
+.gem {
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gem:hover {
+    transform: scale(1.12);
+    filter: brightness(1.4);
+}
+
+/* Botones más tecnológicos */
+button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.04);
+    filter: brightness(1.15);
+}
+
+/* Efecto al aparecer una pantalla */
+.screen:not(.hidden) {
+    animation: screenBoot 0.6s ease;
+}
+
+@keyframes screenBoot {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+        filter: brightness(1.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+/* =========================================
+   PARTÍCULAS GRANDES Y BRILLANTES
+========================================= */
+
+.particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+
+    background: #00eaff;
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 999;
+
+    opacity: 1;
+
+    box-shadow:
+        0 0 8px #00eaff,
+        0 0 18px #00eaff,
+        0 0 30px #00eaff;
+
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+
+    0% {
+        transform: translateY(110vh) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(40vh) scale(1.3);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(0.8);
+        opacity: 0;
+    }
+}
+/* =========================================
+   TRANSICIONES CINEMATOGRÁFICAS
+========================================= */
+
+.screen {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+}
+
+.screen:not(.hidden) {
+    animation: cinematicEnter 0.8s ease both;
+}
+
+@keyframes cinematicEnter {
+
+    0% {
+        opacity: 0;
+        transform: scale(1.04);
+        filter: brightness(2) blur(4px);
+    }
+
+    40% {
+        opacity: 0.6;
+        filter: brightness(1.5) blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1) blur(0);
+    }
+}
